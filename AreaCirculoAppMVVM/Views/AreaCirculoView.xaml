@@ -2,11 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AreaCirculoAppMVVM.Views.AreaCirculoView"
-             Title="AreaCirculoView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewModel= "clr-namespace:AreaCirculoAppMVVM.ViewModels"
+             x:DataType="viewModel:AreaCirculoViewModel"
+             Title="Calculo de Area de un Circulo">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10,0,10,0" Spacing="5">
+            <Label Text="Ingrese el radio del circulo: " />
+            <Entry Text="{Binding Rad}" Keyboard="Numeric" />
+
+            <Label Text="Resultado: " />
+            <Entry Text="{Binding Resultado}" IsReadOnly="True" />
+
+            <Button Text="Calcular" Command="{Binding CalcularCommand}" BackgroundColor="Green" />
+            <Button Text="Limpiar" Command="{Binding LimpiarCommand}" BackgroundColor="OrangeRed" />
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
